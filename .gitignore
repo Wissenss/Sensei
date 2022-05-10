@@ -2,7 +2,7 @@
 **/.DS_Store
 GodMode.py
 test.py
-
+.replit
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
