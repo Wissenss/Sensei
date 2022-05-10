@@ -1,6 +1,6 @@
 #Personal ignores
 **/.DS_Store
-god_console.py
+GodMode.py
 test.py
 
 # Byte-compiled / optimized / DLL files

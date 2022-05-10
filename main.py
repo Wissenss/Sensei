@@ -1,14 +1,14 @@
-import discord
+import discord #discord module
 from discord.ext import commands
 
 import logging  #discord.py logs errors and debug information via the logging python module
 import sqlite3  #database module
 
-from dotenv import load_dotenv
+from dotenv import load_dotenv #hide TOKEN as enviorment variable
 import os
 
 load_dotenv() 
-TOKEN = os.getenv("TOKEN")
+TOKEN = os.getenv("TOKEN") #reads TOKEN, store at .env
 
 logging.basicConfig(level=logging.INFO) #set logging to basic config
 
@@ -19,6 +19,13 @@ client = commands.Bot(intents=intents, command_prefix = '!')
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
+
+@client.command()
+async def info(ctx):
+    file = open('messages/info.txt', 'r')
+    message = file.read()
+    await ctx.send(message)
+    file.close()
 
 @client.command()
 async def status(ctx):
