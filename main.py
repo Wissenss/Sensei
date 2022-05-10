@@ -1,7 +1,14 @@
 import discord
 from discord.ext import commands
+
 import logging  #discord.py logs errors and debug information via the logging python module
 import sqlite3  #database module
+
+from dotenv import load_dotenv
+import os
+
+load_dotenv() 
+TOKEN = os.getenv("TOKEN")
 
 logging.basicConfig(level=logging.INFO) #set logging to basic config
 
@@ -31,4 +38,4 @@ async def status(ctx):
     await ctx.send(f"**Money:** *{info[2]}*")
     connection.close()
 
-client.run('ODczMTIzODYxMTEyMTc2NjUw.Gj_Bqt.VRxLEjKm2qg_6nhK-vHzVXCnhRmXHKtf1pT9WY')
+client.run(f'{TOKEN}')
