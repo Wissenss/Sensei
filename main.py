@@ -35,7 +35,7 @@ async def info(ctx):
 @client.command()   #display user information, store on records.db in "records" table
 async def status(ctx):
     #connect to database records.db
-    connection = sqlite3.connect('records.db') 
+    connection = sqlite3.connect('database.db') 
     records = connection.cursor()
 
     #search for user in "records" table
@@ -55,6 +55,8 @@ async def status(ctx):
     await ctx.send(f"**Money:** *{info[2]}*")
     connection.close()
 
-
+@client.command()
+async def inventory(ctx):
+    await ctx.send("in development")
 
 client.run(f'{TOKEN}')

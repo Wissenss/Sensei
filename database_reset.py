@@ -2,7 +2,7 @@ import sqlite3
 import os
 
 def set_records():
-    connection = sqlite3.connect('records.db')
+    connection = sqlite3.connect('database.db')
     records = connection.cursor()
 
     records.execute("""CREATE TABLE records (
@@ -19,9 +19,10 @@ def set_items():
     records = connection.cursor()
 
     records.execute("""CREATE TABLE items (
-        user TEXT,
-        score INTEGER,
-        money INTEGER
+        ID INTEGER,
+        name TEXT,
+        rank TEXT,
+        value INTEGER
     )""")
 
     connection.commit()
