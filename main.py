@@ -36,7 +36,7 @@ async def info(ctx):
 async def status(ctx):
     #connect to database records.db
     connection = sqlite3.connect('records.db') 
-    records = connection.cursor() 
+    records = connection.cursor()
 
     #search for user in "records" table
     player = ctx.message.author 
@@ -54,5 +54,7 @@ async def status(ctx):
     await ctx.send(f"**Score:** *{info[1]}*")
     await ctx.send(f"**Money:** *{info[2]}*")
     connection.close()
+
+
 
 client.run(f'{TOKEN}')
