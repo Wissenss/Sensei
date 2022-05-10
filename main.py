@@ -6,7 +6,7 @@ import logging  #discord.py logs errors and debug information via the logging py
 import sqlite3  #database module
 
 from dotenv import load_dotenv #hide TOKEN as enviorment variable
-import os
+import os 
 
 """CONFIGURATION"""
 load_dotenv() #loads .env variables
