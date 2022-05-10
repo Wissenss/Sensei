@@ -4,9 +4,9 @@ import os
 os.remove('records.db')
 
 connection = sqlite3.connect('records.db')
-c = connection.cursor()
+records = connection.cursor()
 
-c.execute("""CREATE TABLE records (
+records.execute("""CREATE TABLE records (
     user TEXT,
     score INTEGER,
     money INTEGER
