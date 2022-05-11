@@ -15,7 +15,7 @@ def set_records():
     connection.close()
 
 def set_items():
-    connection = sqlite3.connect('records.db')
+    connection = sqlite3.connect('database.db')
     records = connection.cursor()
 
     records.execute("""CREATE TABLE items (
@@ -28,7 +28,7 @@ def set_items():
     connection.commit()
     connection.close()
 
-os.remove('records.db')
+os.remove('database.db')
 
 set_records()
 set_items()
