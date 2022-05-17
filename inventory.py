@@ -1,9 +1,11 @@
 from table import Table
+from catalog import CardCatalog, Catalog
 
 class Inventory(Table):
     def __init__(self, name, connection):
+        self.catalog = CardCatalog(connection)
         super().__init__(name, connection)
-
+ 
         default_parameters = """
                 id INTEGER PRIMARY KEY,
                 amount INTEGER
@@ -38,7 +40,11 @@ class Inventory(Table):
             self.row_delete('id', item_id)
         return True
 
+    def item_get_attributes(self, item_id):
+        return self.catalog.row_get('id', item_id)
+
 class Deck(Inventory):
     def __init__(self, owner_id, connection):
         name = f"deck_{owner_id}"
+        self.catalog = CardCatalog(connection)
         super().__init__(name, connection)

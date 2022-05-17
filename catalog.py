@@ -8,14 +8,14 @@ class Catalog(Table):
     def catalog_create(self):
         if not self.exist():
             self.create(self.default_parameters)
-            
+             
 
 class CardCatalog(Catalog):
     def __init__(self, connection):
         name = 'CardCatalog'
         super().__init__(name, connection)
         self.default_parameters = """
-                number INTEGER PRIMARY KEY,
+                id INTEGER PRIMARY KEY,
                 name TEXT,
                 element TEXT,
                 value INTEGER,

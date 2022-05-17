@@ -36,6 +36,8 @@ keep = True
 while keep:
     if confirm == confirmation:
         reset()
+        print("Done! all user data has been removed")
+        keep = False
     elif confirm == "Exit":
         keep = False
     else:

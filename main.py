@@ -55,14 +55,21 @@ async def deck(ctx):
     user = User(ctx.message.author, connection)
 
     #create message
-    message = "**Name   Number   Value   Element   Color**"
+    message = "**Amount\t\t\tName\t\t\t\tNumber\t\tValue\t\t\tElement\t\t\tColor**"
 
     #   acces User inventory
     for card in user.deck_inventory.row_get_all():
-        message += '\n'
-        for element in card:
-            message += f"{element}   "
-    
+        attributes = user.deck_inventory.item_get_attributes(card[0])
+        row = f"\n\
+            {card[1]}   \
+            {attributes[0][2]}   \
+            {attributes[0][1]}   \
+            {attributes[0][3]}   \
+            {attributes[0][4]}   \
+            {attributes[0][5]}   "
+
+        message += row
+
     #display message on server
     await ctx.send(message)
 
