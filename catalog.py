@@ -8,15 +8,7 @@ class Catalog(Table):
     def catalog_create(self):
         if not self.exist():
             self.create(self.default_parameters)
-
-    def load_file(self, file):
-        with open(file, 'r') as data:
-            data = data.readlines()
-            for entry in data:
-                entry = entry.split('-')
-                print(entry)
-                self.row_add(f"{entry}")
-
+            
 
 class CardCatalog(Catalog):
     def __init__(self, connection):
@@ -29,6 +21,12 @@ class CardCatalog(Catalog):
                 value INTEGER,
                 color TEXT
                 """
+        self.file = 'Assets/load/cards.txt'
 
     def catalog_load(self):
-        self.load_file('Assets/load/cards.txt')
+        with open(self.file, 'r') as data:
+            data = data.readlines()
+            for entry in data:
+                entry = entry.split('-')
+                entry = "{}, '{}', '{}', {}, '{}'".format(entry[0], entry[1], entry[2], entry[3], entry[4]) 
+                self.row_add(f"{entry}")

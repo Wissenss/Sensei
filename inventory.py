@@ -1,4 +1,3 @@
-from email.policy import default
 from table import Table
 
 class Inventory(Table):
