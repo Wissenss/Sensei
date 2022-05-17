@@ -1,4 +1,5 @@
 from table import Table
+from inventory import Deck
 
 class Members(Table):
     def __init__(self, connection):
@@ -25,7 +26,6 @@ class Members(Table):
     def member_get(self):
         return self.row_get('user', self.username)
 
-
 class Penguin(Members):
     def __init__(self, discord_id, connection):
         super().__init__(connection)
@@ -38,4 +38,10 @@ class Penguin(Members):
         self.id = row[0][0]
         self.score = row[0][2]
         self.money = row[0][3]
-    
+
+        #inventories
+        self.deck_inventory = Deck(self.id, self.connection)
+
+class User(Penguin):
+    def __init__(self, username, connection):
+        super().__init__(username, connection)

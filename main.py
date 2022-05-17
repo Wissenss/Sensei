@@ -1,4 +1,5 @@
 """MODULES"""
+from email import message
 import discord #discord module
 from discord.ext import commands
 
@@ -9,7 +10,7 @@ from dotenv import load_dotenv #hide TOKEN as enviorment variable
 import os 
 
 """CUSTOM CLASSES"""
-from penguin import User
+from members import User
 
 """CONFIGURATION"""
 load_dotenv() #loads .env variables
@@ -21,7 +22,7 @@ intents = discord.Intents.default() #set Intents to default
 client = commands.Bot(intents=intents, command_prefix = '!') #instance Bot object, set prefix to !
 
 #connect to database database.db
-connection = sqlite3.connect('database.db') 
+connection = sqlite3.connect('database.db')
 
 """COMMANDS"""
 @client.event   #logging log
@@ -44,13 +45,26 @@ async def status(ctx):
     user = User(ctx.message.author, connection)
 
     #display user information on server
-    await ctx.send(f"**{user.get_name()}**")
-    await ctx.send(f"**Score:** *{user.get_score()}*")
-    await ctx.send(f"**Money:** *{user.get_money()}*")
+    await ctx.send(f"**{user.username}**")
+    await ctx.send(f"**Score:** *{user.score}*")
+    await ctx.send(f"**Money:** *{user.money}*")
 
 @client.command()
-async def inventory(ctx):
-    await ctx.send("in development")
+async def deck(ctx):
+    #create instance of user
+    user = User(ctx.message.author, connection)
+
+    #create message
+    message = "**Name   Number   Value   Element   Color**"
+
+    #   acces User inventory
+    for card in user.deck_inventory.row_get_all():
+        message += '\n'
+        for element in card:
+            message += f"{element}   "
+    
+    #display message on server
+    await ctx.send(message)
 
 @client.command()
 async def arquitecture(ctx):
