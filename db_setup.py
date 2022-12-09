@@ -42,6 +42,6 @@ while keep:
         keep = False
     else:
         confirm = input(f"\
-        Wrong frase! remember, type \"{confirmation}\"\n\
+        Wrong phrase! remember, type \"{confirmation}\"\n\
         typing \"Exit\" will end the script \
         :")
