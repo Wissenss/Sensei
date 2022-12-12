@@ -1,0 +1,36 @@
+1-cart surfer-fire-3-blue
+2-coffee shop-fire-2-green
+3-astro barrier-fire-8-green
+4-hot chocolate-fire-3-orange
+5-landing pad-fire-4-purple
+6-pizza chef-fire-6-purple
+7-paint by letters-fire-2-red
+8-mine-fire-7-red
+9-construction worker-fire-2-yellow
+10-jet pack adventure-fire-5-yellow
+11-gift shop-snow-3-blue
+12-hiking in the forest-snow-2-green
+13-rescue squad-snow-5-green
+14-pet shop-snow-3-orange
+15-ski village-snow-4-purple
+16-ice hockey-snow-8-purple
+17-ski hill-snow-2-red
+18-snowball fight-snow-6-red
+19-snow forts-snow-2-yellow
+20-soccer-snow-7-yellow
+21-beach-water-3-blue
+22-football-water-5-blue
+23-baseball-water-2-green
+24-emerald princess-water-8-green
+25-bean counters-water-3-orange
+26-manhole cover-water-4-purple
+27-newspaper archives-water-6-purple
+28-underground pool-water-2-red
+29-scuba diving-water-7-red
+30-ice fishing-water-2-yellow
+31-case of the missing coins-fire-2-blue
+32-crates and boxes-fire-5-blue
+33-anvil smith-fire-4-green
+34-halloween-fire-6-orange
+35-knight-fire-3-purple
+36-black puffle-fire-5-orange
