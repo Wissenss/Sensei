@@ -23,3 +23,14 @@
 23-baseball-water-2-green
 24-emerald princess-water-8-green
 25-bean counters-water-3-orange
+26-manhole cover-water-4-purple
+27-newspaper archives-water-6-purple
+28-underground pool-water-2-red
+29-scuba diving-water-7-red
+30-ice fishing-water-2-yellow
+31-case of the missing coins-fire-2-blue
+32-crates and boxes-fire-5-blue
+33-anvil smith-fire-4-green
+34-halloween-fire-6-orange
+35-knight-fire-3-purple
+36-black puffle-fire-5-orange

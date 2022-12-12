@@ -13,7 +13,7 @@ def reset():
     try:
         os.remove(database)
     except: pass
-
+ 
     connection = sqlite3.connect(database)
 
     members = Members(connection)
