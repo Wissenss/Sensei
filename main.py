@@ -1,21 +1,19 @@
 import discord
+from discord.ext import commands
 
-"TEMPORAL VARIABLES"
-TOKEN = "ODczMTIzODYxMTEyMTc2NjUw.G5yHt8.QpyLezT8l3IaLf6RvqkN-c8UNAqd9j0vm4lAHE"
+from config import settings
 
-intents = discord.Intents.default()
+# intents = discord.Intents.default()
+# client = discord.Client(intents=intents)
 
-client = discord.Client(intents=intents)
+bot = commands.Bot(command_prefix="$")
 
-@client.event
+@bot.event
 async def on_ready():
-    print(f"succesful login as {client.user}")
+    print(f"succesful login as {bot.user}")
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
+@bot.command()
+async def stats(ctx, args ):
+    await ctx.send("wololo")
 
-    if message.content.startswith("")
-
-client.run(TOKEN)
+bot.run(settings.TOKEN)
