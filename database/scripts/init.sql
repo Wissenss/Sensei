@@ -1,1 +1,0 @@
-CREATE TABLE Players(discordId TEXT UNIQUE, score INTEGER, capital INTEGER);

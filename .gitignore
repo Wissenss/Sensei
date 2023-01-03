@@ -1,9 +1,10 @@
 #Personal ignores
 **/.DS_Store
-GodMode.py
-test.py
-.replit
-plan.txt
+# GodMode.py
+# test.py
+# .replit
+# plan.txt
+.db 
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
