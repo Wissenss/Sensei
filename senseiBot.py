@@ -31,6 +31,7 @@ DataModule.instancepath = settings.get("DATABASE", "path")
 #bot configuration
 intents = discord.Intents.default()
 intents.message_content = True
+intents.members = True
 
 client = discord.Client(intents=intents)
 
@@ -56,6 +57,11 @@ async def on_message(message):
     #status
     if message.content.startswith("!status"):
         logging.info(f"\033[94mstatus\033[0m command called by \033[95m{message.author}\033[0m")
+        await commands.status(message)
+
+    #jistu
+    if message.content.startswith("!jitsu"):
+        logging.info(f"\033[94mjitsu\033[0m command called by \033[95m{message.author}\033[0m")
         await commands.status(message)
 
 #run bot

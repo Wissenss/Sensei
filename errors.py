@@ -12,6 +12,9 @@ class ErrorCode(Enum):
     ERR_NO_ARGUMENT_PROVIDED = "010101"
 
     # config file errors 02 ## ##
+    #   general file errors 02 00 ##
+    ERR_NOT_FOUND_CONFIG_FILE = "020001"
+
     #   discord config 02 01 ##
     ERR_INVALID_CONFIG_TOKEN = "020101"
 

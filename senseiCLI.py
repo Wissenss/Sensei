@@ -54,6 +54,24 @@ if subcommand == "config":
 
         sys.exit(1)
 
+    if action=="init":
+        answer = input("  This procedure will \033[41moverwrite your configuration file\033[0m, do you want to proceed? \n  (y/n): ")
+        if not(answer in ["y", "Y"]):
+            sys.exit()
+
+        settings = Settings()
+        settings.set_default()
+
+        #asking for discord token
+        print("\n  Please provid the following values")
+        token = input("    \033[36mDiscord Token\033[0m: ")
+        #it would be nice to add some validation for tokens, not a priority tho
+        settings.set("DISCORD", "token", token)
+        
+        print("\n  saving...")
+        settings.store()
+        sys.exit()
+
 if subcommand == "database":
     action = args.action
 
@@ -65,7 +83,10 @@ if subcommand == "database":
 
         print(" reading settings...\n")
         configfile = Settings()
-        configfile.load()
+        errors = configfile.load()
+        if errors != ErrorCode.ERR_NO_ERROR:
+            print(errors)
+            sys.exit()
 
         print(" initializing database...")
         dataModule.DataModule.instancepath = configfile.get("DATABASE", "path")

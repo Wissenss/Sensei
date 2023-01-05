@@ -6,6 +6,7 @@ pip install --upgrade termcolor
 pip install --upgrade db-sqlite3
 
 ::one time run procedures
+python senseiCLI.py config init
 python senseiCLI.py database init
 ::python senseiCLI.py config show
 cmd /k 

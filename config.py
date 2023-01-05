@@ -6,9 +6,14 @@ CONFIG_FILE = "config.ini"
 class Settings(ConfigParser):
     def __init__(self):
         super().__init__()
-        #init parser with default values, this will be overwrriten by with the ones stored in config.ini
+        self.set_default()
+    
+    def set_default(self):
+        #init parser with default values
+        self.clear()
+
         self.add_section("DISCORD")
-        self.set("DISCORD", "token", "")
+        self.set("DISCORD", "token", "<your token goes here>")
 
         self.add_section("DATABASE")
         self.set("DATABASE", "path", "database.db") 
@@ -16,9 +21,12 @@ class Settings(ConfigParser):
         self.add_section("CLI")
         self.set("CLI", "highlight color", "cyan")
         self.set("CLI", "font color", "white")
-    
+
     #reads the contents of the parser from config.ini
     def load(self):
+        if not(os.path.isfile(CONFIG_FILE)):
+            return ErrorCode.ERR_NOT_FOUND_CONFIG_FILE
+
         self.read(CONFIG_FILE)
         return self._isvalidconfig()
 

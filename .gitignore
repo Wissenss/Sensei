@@ -4,7 +4,8 @@
 # test.py
 # .replit
 # plan.txt
-.db 
+*.db 
+*.ini
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

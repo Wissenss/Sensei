@@ -43,3 +43,10 @@ async def status(message: Message):
 
     #output stats
     await message.channel.send(embed=embed)
+
+async def jitsu(message: Message):
+    mention = message.mentions
+    server = message.guild
+    members = server.members
+
+    await message.channel.send(f"{'-'.join(members)}")
