@@ -59,6 +59,11 @@ async def on_message(message):
         logging.info(f"\033[94mstatus\033[0m command called by \033[95m{message.author}\033[0m")
         await commands.status(message)
 
+    #belts
+    if message.content.startswith("!belts"):
+        logging.info(f"\033[94mbelts\033[0m command called by \033[95m{message.author}\033[0m")
+        await commands.belts(message)
+
     #jistu
     if message.content.startswith("!jitsu"):
         logging.info(f"\033[94mjitsu\033[0m command called by \033[95m{message.author}\033[0m")
