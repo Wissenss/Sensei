@@ -9,4 +9,4 @@ pip install --upgrade db-sqlite3
 python senseiCLI.py config init
 python senseiCLI.py database init
 ::python senseiCLI.py config show
-cmd /k 
+::cmd /k 
