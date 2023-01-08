@@ -47,10 +47,9 @@ def update_player(**kwargs):
     
 def get_player(discordId):
     #the player record return has the following structure:
-    #record[0] = rowId
-    #record[1] = discordId
-    #record[2] = score
-    #record[3] = capital
+    #record[0] = discordId
+    #record[1] = score
+    #record[2] = capital
 
     connection = DataModule()
     cursor = connection.cursor()

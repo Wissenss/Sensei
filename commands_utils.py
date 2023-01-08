@@ -30,3 +30,23 @@ def current_ninjarank(ninjarank):
         return("Black")
 
 # print(current_ninjarank())
+
+#TODO 
+#Esta funcion deberia regresar una string que se la barra de progreso "dibujada" con
+#emojis de discord y debe coincidir con el color del jugador 
+def beltProgressBar(score: int, color: str)->str:
+    #this dictionary asociates the label color with discord's emoji 
+    beltColors = {
+        None : ":heavy_minus_sign: ",
+        "Black" : ":black_large_square:", 
+        "Brown" : ":brown_square:",
+        "Purple" : ":purple_square:",
+        "Red" : ":red_square:",
+        "Blue" : ":blue_square:",
+        "Green" : ":green_square:",
+        "Orange" : ":orange_square:",
+        "Yellow" : ":yellow_square:",
+        "White" : ":white_large_square:",
+    }
+
+    return f"{beltColors['Red']} "*7+":heavy_minus_sign: "*3

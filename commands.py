@@ -1,7 +1,7 @@
 from random import randint
 
 from discord.message import Message 
-from discord import Embed
+from discord import Embed, Color
 
 from database import intf
 from errors import ErrorCode
@@ -30,18 +30,38 @@ async def hello(message: Message):
     await message.channel.send(responses[randint(0, len(responses)-1)])
 
 async def status(message: Message):
+    beltColors = {
+        None : Color.from_rgb(47, 49, 54),
+        "Black" : Color.from_rgb(49, 55, 61), 
+        "Brown" : Color.from_rgb(193, 105, 79),
+        "Purple" : Color.from_rgb(170, 142, 214),
+        "Red" : Color.from_rgb(221, 46, 68),
+        "Blue" : Color.from_rgb(85, 172, 238),
+        "Green" : Color.from_rgb(120, 177, 89),
+        "Orange" : Color.from_rgb(244, 144, 12),
+        "Yellow" : Color.from_rgb(253, 203, 88),
+        "White" : Color.from_rgb(230, 231, 232),
+    }
+
     #query database
     error, playerRecord = intf.get_player(message.author)
     if error == ErrorCode.ERR_RECORD_NOT_FOUND_PLAYERS:
         error, playerRecord = intf.add_player(message.author)
 
-    #create embed
-    playerName = playerRecord[0] #wack, deberia haber mejor manera
-    score = playerRecord[1]
+    #player info
+    score = playerRecord[1]  #wack, deberia haber mejor manera
     capital = playerRecord[2]
-    embed = Embed(title=playerName)
-    embed.add_field(name="score", value=score, inline=False)
-    embed.add_field(name="capital", value=capital, inline=False)
+    name = message.author.name
+
+    #get the corresponding color
+    player_color = commands_utils.current_ninjarank(score)
+
+    #create embed
+    embed = Embed(title=name)
+    embed.add_field(name="Score", value=score, inline=True)
+    embed.add_field(name="Capital", value=capital, inline=True)
+    embed.add_field(name="Belt Progress", value=commands_utils.beltProgressBar(score, player_color), inline=False)
+    embed.color = beltColors[player_color]
 
     #output stats
     await message.channel.send(embed=embed)

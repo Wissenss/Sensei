@@ -76,11 +76,6 @@ if subcommand == "database":
     action = args.action
 
     if action in ["init"]:
-        # response = input(" This procedure will \033[41mreset you configfile\033[0m, do you want to proceed?\n (y|n): ")
-        # if response != "y":
-        #     print(" \naborting procedure...")
-        #     sys.exit(1)
-
         print(" reading settings...\n")
         configfile = Settings()
         errors = configfile.load()
@@ -96,6 +91,17 @@ if subcommand == "database":
         print("\n terminating process...")
         sys.exit(1)
 
+    if action in ["sql"]:
+        print(" reading settings...\n")
+        configfile = Settings()
+        errors = configfile.load()
+        if errors != ErrorCode.ERR_NO_ERROR:
+            print(errors)
+            sys.exit()
+
+        sql = sys.argv[2]
+        print(sql)
+
 if subcommand == "bot":
     action = args.action
 
@@ -109,6 +115,10 @@ if subcommand == "bot":
         # os.popen("python discord/main.py")
         os.system("start cmd /k python senseiBot.py")
         sys.exit(1)
+
+#this commands will handle edits to the database, maybe just doing one that runs sql will be fine
+if subcommand in ["mod"]:
+    pass
 
 #the argument does not match any sub command
 print(f"\"{subcommand} {action}\" is not a valid command, type -h for a list of available commands")

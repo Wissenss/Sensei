@@ -17,6 +17,7 @@ config_parser.add_argument("action")
 """database sub command"""
 database_parser = sub_parsers.add_parser("database")
 database_parser.add_argument("action")
+database_parser.add_argument("--sql", default="")
 
 """bot sub command"""
 bot_parser = sub_parsers.add_parser("bot")
