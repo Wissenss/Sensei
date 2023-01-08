@@ -11,7 +11,7 @@ python senseiCLI.py help
 In the command prompt.
 
 ## How to run
-A couple of python modules, configuration files and a database instance are needed for the application to run properly. W've provided a **setup.cmd** file that will automate the process of getting you setup up.
+A couple of python modules, configuration files and a database instance are needed for the application to run properly. We've provided a **setup.cmd** file that will automate the process of getting you setup up.
 
 First of all, ensure that you have **python 3.8 or higher** installed and properly **added to path**. To check you python version run:
 ```
@@ -42,7 +42,7 @@ token = <your token goes here>
 ```
 replace *\<your token goes here\>* with you personal token.
 
-When creating you discord application make sure to **enable both message and memebers intends**. For more information in how to create a discord bot application, please refere to discord official documentation.
+When creating you discord application make sure to **enable both message and memebers intends**. For more information in how to create a discord bot application, please refere to discord.py [official documentation](https://discordpy.readthedocs.io/en/stable/discord.html).
 
 And that it! Type:
 ```
